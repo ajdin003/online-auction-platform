@@ -1,29 +1,25 @@
 const User = require("../models/userModel");
 
-exports.newUser = async (req, res, next) => {
+exports.getAllUsers = async (req, res, next) => {
   try {
-    const { username } = req.body;
+    const users = await User.find();
 
-    const user = await User.findOne({ username });
-
-    if (user) {
-      res.status(400).json("User already exists");
+    if (users.length === 0) {
+      return res
+        .status(404)
+        .json({ status: "fail", message: "No users found" });
     }
-
-    const newUser = await User.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      username: req.body.username,
-      password: req.body.password,
-    });
 
     res.status(200).json({
       status: "success",
+      results: users.length,
       data: {
-        user: newUser,
+        users,
       },
     });
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    // Handle errors
+    console.error(err);
+    res.status(500).json({ status: "error", message: "Internal Server Error" });
   }
 };
