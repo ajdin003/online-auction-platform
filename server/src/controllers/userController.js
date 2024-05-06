@@ -18,8 +18,22 @@ exports.getAllUsers = async (req, res, next) => {
       },
     });
   } catch (err) {
-    // Handle errors
     console.error(err);
+    res.status(500).json({ status: "error", message: "Internal Server Error" });
+  }
+};
+
+exports.getUserById = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({ message: "No user found with that id!" });
+    }
+
+    res.status(200).json({ status: "success", data: { user } });
+  } catch (error) {
+    console.log(error);
     res.status(500).json({ status: "error", message: "Internal Server Error" });
   }
 };
