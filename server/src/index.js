@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRouter = require("./routes/userRouter");
+const articleRouter = require("./routes/articleRouter");
 const cors = require("cors");
 
 dotenv.config({ path: "./.env" });
@@ -17,6 +18,7 @@ const DB = process.env.DATABASE_CONNECTION.replace(
 );
 
 app.use("/users", userRouter);
+app.use("/articles", articleRouter);
 
 mongoose.connect(DB).then(() => {
   console.log("Database connection established.");
