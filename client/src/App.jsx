@@ -7,22 +7,26 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Hero from "./components/Hero.jsx";
 import Popular from "./components/Popular.jsx";
 import ItemDetail from "./Pages/weekly.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
+  const queryClient = new QueryClient();
   return (
-    <div>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/Shop" element={<Shop />}></Route>
-          <Route path="/popular" element={<Popular />} />
-          <Route path="/item/:id" element={<ItemDetail />} />
-        </Routes>
-      </Router>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/Shop" element={<Shop />}></Route>
+            <Route path="/popular" element={<Popular />} />
+            <Route path="/item/:id" element={<ItemDetail />} />
+          </Routes>
+        </Router>
+      </div>
+    </QueryClientProvider>
   );
 }
 

@@ -1,20 +1,25 @@
-import React from "react";
 import "../css/Item.css";
 import { Link } from "react-router-dom";
-const Item = (props) => {
-  return (
-    <Link to={`/item/${props.id}`}>
-      <div className="item">
-        <img src={props.image} alt="" />
-        <p>{props.name}</p>
-        <div className="item-prices">
-          <div className="item-price-new">${props.new_price}</div>
+import PropTypes from "prop-types";
 
-          <div className="item-price-old">${props.new_price}</div>
+const Item = ({ id, name, newPrice }) => {
+  return (
+    <Link to={`/item/${id}`}>
+      <div className="item">
+        <p>{name}</p>
+        <div className="item-prices">
+          <div className="item-price-new">${newPrice}</div>
+          <div className="item-price-old">${newPrice}</div>
         </div>
       </div>
     </Link>
   );
+};
+
+Item.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  newPrice: PropTypes.number.isRequired,
 };
 
 export default Item;
