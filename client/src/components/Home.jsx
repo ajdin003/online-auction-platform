@@ -2,12 +2,14 @@ import { useCookies } from "react-cookie";
 import "../css/home.css";
 import { useNavigate } from "react-router-dom";
 
+
 const Home = () => {
   const [cookies] = useCookies(["token"]);
   const navigate = useNavigate();
   console.log(cookies.token);
 
   return (
+    
     <div className="home-wrapper">
       {!cookies.token && (
         <div className="not-logged-in-wrapper">
@@ -20,6 +22,7 @@ const Home = () => {
               <button onClick={() => navigate("/login")}>Log In</button>
               <button onClick={() => navigate("/register")}>
                 Create Account
+                
               </button>
             </div>
           </div>

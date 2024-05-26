@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
-  color: #eeeeee;
+  color: #0e0707;
 }
 .register-title {
   font-size: 24px;
@@ -31,7 +31,7 @@ input {
   /* border: 1px solid #dac0a3; */
   font-size: 18px;
   background-color: transparent;
-  color: #eeeeee;
+  color: #000000;
 }
 button {
   padding: 10px;
@@ -44,12 +44,12 @@ button {
   cursor: pointer;
   background-color: transparent;
   border: 1px solid #a91d3a;
-  color: #eeeeee;
+  color: #000000;
 }
 
 button:hover {
   background-color: #a91d3a;
-  color: #f6f1ee;
+  color: #000000;
 }
 
 @media (min-width: 500px) {
