@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
-import Item from "./Item";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Item from "./Item";
 
 const ItemList = () => {
-  const [articles, setArticles] = useState([]);
-
-  const query = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["articles"],
     queryFn: async () => {
       const response = await axios.get("http://localhost:3001/articles");
@@ -14,23 +11,28 @@ const ItemList = () => {
     },
   });
 
-  useEffect(() => {
-    if (query.data) {
-      setArticles([...query.data.data.articles]);
-    }
-  }, [query.data]);
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
 
-  console.log(articles);
+  if (error) {
+    return <span>Error: {error.message}</span>;
+  }
+
+  if (!data || !data.data || !data.data.articles) {
+    return <span>No articles found</span>;
+  }
 
   return (
     <div>
-      aa
-      {articles.map((article) => (
+      {data.data.articles.map((article) => (
         <Item
-          key={article.id}
+          key={article._id}
           name={article.articleName}
-          id={article.id}
+          id={article._id}
           newPrice={article.price}
+          startDate={article.startDate}
+          endDate={article.endDate}
         />
       ))}
     </div>

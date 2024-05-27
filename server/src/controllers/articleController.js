@@ -40,3 +40,31 @@ exports.getAllArticles = async (req, res, next) => {
     res.status(500).json(error);
   }
 };
+
+exports.getArticleById = async (req, res, next) => {
+  try {
+    const articleId = req.params.id;
+
+    if (!articleId) {
+      return res.status(400).json({ status: "fail", message: "No article id" });
+    }
+
+    const article = await Article.findById(articleId);
+
+    if (!article) {
+      return res
+        .status(404)
+        .json({ status: "fail", message: "No article found" });
+    }
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        article,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+};
