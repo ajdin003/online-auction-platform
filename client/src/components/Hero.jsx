@@ -12,29 +12,32 @@ const Hero = () => {
         <div className="hero-left">
           {" "}
           {/* PROMJENIT */}
-          <h2>NEW ARRIVALS ONLY</h2>
+          <h2>Welcome to Online Auction Platform</h2>
           <div>
             <div className="hero-hand-icon">
               {" "}
               {/* PROMJENIT */}
-              <p>new</p>
-              <img src={hand_icon} alt="" />
+              
+              
             </div>
-            <p>collection</p>
-            <p>for everyone</p>
+            <p>Find unique items</p>
           </div>
           <div className="hero-latest-btn">
             {" "}
             {/* PROMJENIT */}
-            <div>Latest Collection</div>
-            <img src={arrow_icon} alt="" /> {/* PROMJENIT */}
+            <div>View Latest Auctions</div>
+            
           </div>
         </div>
 
         <div className="hero-right">
           {" "}
-          {/* PROMJENIT */}
-          <img src={hero_image} alt="sss" />
+          <div className="weekly-auctions">
+            <h3>Weekly Auctions</h3>
+            <p>Discover our latest weekly auctions featuring unique items!</p>
+            {/* Add your Item component or any content for weekly auctions here */}
+            <Item id="1" name="Example Item" newPrice={100} />
+          </div>
         </div>
       </div>
 

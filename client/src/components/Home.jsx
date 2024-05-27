@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [cookies] = useCookies(["token"]);
   const navigate = useNavigate();
-  console.log(cookies.token);
+  console.log(cookies.token); // 
 
   return (
     

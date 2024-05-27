@@ -22,6 +22,7 @@ const Register = () => {
 
   return (
     <div className="register-wrapper">
+      <div className="register-box">
       <h1 className="register-title">Register your account</h1>
       <div className="register-content-wrapper">
         <input
@@ -46,6 +47,7 @@ const Register = () => {
         />
         <button onClick={handleSubmit}>Create Account</button>
       </div>
+    </div>
     </div>
   );
 };

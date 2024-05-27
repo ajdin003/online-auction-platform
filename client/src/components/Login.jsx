@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import "../css/register.css";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -26,7 +26,9 @@ const Login = () => {
 
   return (
     <div className="register-wrapper">
+      <div className="login-box">
       <h1 className="register-title">Log in to your account</h1>
+      
       <div className="register-content-wrapper">
         <input
           type="text"
@@ -38,7 +40,10 @@ const Login = () => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <p>Don't have an account? <Link to="/register">Register here</Link>
+      </p>
         <button onClick={handleSubmit}>Log In</button>
+      </div>
       </div>
     </div>
   );

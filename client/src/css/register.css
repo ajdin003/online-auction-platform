@@ -6,6 +6,7 @@
   justify-content: center;
   gap: 40px;
   color: #0e0707;
+  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
 }
 .register-title {
   font-size: 24px;
@@ -52,8 +53,45 @@ button:hover {
   color: #000000;
 }
 
+.register-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.register-link a {
+  color: blue;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+
 @media (min-width: 500px) {
   .register-title {
     font-size: 34px;
   }
+}
+
+.login-box {
+  background: linear-gradient(180deg, #deace2, #d2ffdf22 60%);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+.register-box {
+  background: linear-gradient(180deg, #deace2, #d2ffdf22 60%);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
 }
