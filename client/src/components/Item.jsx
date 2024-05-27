@@ -9,20 +9,58 @@ const Item = ({ id, name, newPrice, startDate, endDate }) => {
   useEffect(() => {
     const calculateTimeRemaining = () => {
       const now = new Date();
+      const start = new Date(startDate);
       const end = new Date(endDate);
-      const difference = end - now;
 
-      const hours = Math.floor(difference / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      console.log("Current time:", now);
+      console.log("Start date:", startDate, "Parsed start date:", start);
+      console.log("End date:", endDate, "Parsed end date:", end);
 
-      setTimeRemaining(`${hours}h ${minutes}m ${seconds}s`);
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+        setTimeRemaining("Invalid start or end date");
+        return;
+      }
+
+      if (now < start) {
+        setTimeRemaining("Auction has not started yet");
+        return;
+      }
+
+      const difference = end - start;
+
+      if (difference <= 0) {
+        setTimeRemaining("Time's up");
+        return;
+      }
+
+      const intervalId = setInterval(() => {
+        const currentTime = new Date();
+        const timeElapsed = currentTime - start;
+
+        const remainingTime = difference - timeElapsed;
+
+        if (remainingTime <= 0) {
+          clearInterval(intervalId);
+          setTimeRemaining("Time's up");
+        } else {
+          const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (remainingTime % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+          setTimeRemaining(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+        }
+      }, 1000);
+
+      return () => clearInterval(intervalId);
     };
 
-    const intervalId = setInterval(calculateTimeRemaining, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [endDate]);
+    calculateTimeRemaining();
+  }, [startDate, endDate]);
 
   return (
     <Link to={`/item/${id}`}>
