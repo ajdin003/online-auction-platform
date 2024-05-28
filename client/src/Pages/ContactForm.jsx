@@ -2,6 +2,12 @@
 import React, { useRef } from 'react';
 import "../css/cont.css";
 import emailjs from '@emailjs/browser';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope,faLocationDot,faMapLocation } from '@fortawesome/free-solid-svg-icons'
+import { faInstagram, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
+
+
 const ContactForm = () => {
 
 
@@ -36,12 +42,14 @@ const ContactForm = () => {
             <div class="form-container">
                 <div class="left-container">
                     <div class="left-inner-container">
-                        <h2>FAV IKONE</h2>
-                        <p>Insta</p>
+                        <h2>FA IKONE</h2>
+                        <p><FontAwesomeIcon icon={faInstagram} />Insta</p>
                         <br />
-                        <p>fb itd</p>
+                        <p><FontAwesomeIcon icon={faEnvelope} />Mejl</p>
                         <br />
-                        <p>GOOGLE MAPS</p>
+                        <p><FontAwesomeIcon icon={faLocationDot} />Lokacija</p>
+                        <br />
+                        <p><FontAwesomeIcon icon={faMapLocation} />GOOGLE MAPS</p>
                         <i class="fa fa-youtube-play" aria-hidden="true"></i>
                     </div>
                 </div>
