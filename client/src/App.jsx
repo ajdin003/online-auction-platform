@@ -9,6 +9,7 @@ import Popular from "./components/Popular.jsx";
 import ItemPage from "./Pages/ItemPage.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ContactForm from "./Pages/ContactForm.jsx";
+import AboutUs from "./Pages/AboutUs.jsx";
 
 function App() {
   const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/Shop" element={<Shop />}></Route>
             <Route path="/Contact" element={<ContactForm />}></Route>
+            <Route path="/About" element={<AboutUs />}></Route>
             <Route path="/popular" element={<Popular />} />
             <Route path="/item/:id" element={<ItemPage />} />
           </Routes>
