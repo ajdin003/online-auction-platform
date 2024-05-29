@@ -13,4 +13,6 @@ router.post(
   articleController.createArticle
 );
 
+router.delete("/:id", authController.protect, articleController.deleteArticle);
+
 module.exports = router;

@@ -68,3 +68,20 @@ exports.getArticleById = async (req, res, next) => {
     res.status(500).json(error);
   }
 };
+
+exports.deleteArticle = async (req, res, next) => {
+  try {
+    const articleId = req.params.id;
+
+    if (!articleId) {
+      return res.status(400).json({ status: "fail", message: "No article id" });
+    }
+
+    await Article.findByIdAndDelete(articleId);
+
+    res.status(204);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+};
