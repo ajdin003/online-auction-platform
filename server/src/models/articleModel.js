@@ -27,6 +27,10 @@ const articleSchema = new mongoose.Schema({
     required: true,
   },
   image: String,
+  highestBid: {
+    type: Number,
+    default: 0,
+  },
 });
 
 articleSchema.pre("validate", function (next) {

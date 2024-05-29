@@ -28,5 +28,6 @@ router.post(
 );
 
 router.delete("/:id", authController.protect, articleController.deleteArticle);
+router.post("/:id/bid", authController.protect, articleController.bidOnArticle);
 
 module.exports = router;
