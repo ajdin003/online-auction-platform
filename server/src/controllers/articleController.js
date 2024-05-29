@@ -4,11 +4,14 @@ exports.createArticle = async (req, res, next) => {
   try {
     const userId = req.user.id;
 
+    const imagePath = req.file ? req.file.path : null;
+
     const newArticle = await Article.create({
       articleName: req.body.articleName,
       price: req.body.price,
       createdBy: userId,
       condition: req.body.condition,
+      image: imagePath,
     });
 
     res.status(200).json({

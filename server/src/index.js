@@ -16,6 +16,7 @@ const DB = process.env.DATABASE_CONNECTION.replace(
   "<password>",
   process.env.DATABASE_PASSWORD
 );
+app.use("/uploads", express.static("uploads"));
 
 app.use("/users", userRouter);
 app.use("/articles", articleRouter);
