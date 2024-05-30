@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Popular = () => {
   return (
     <div className="popular">
-      <h1>WEEKLY OOGA BOOGA </h1>
+      <h1>SPECIAL OFFER, BLUE HAIRED DADDY ISSUES GIRL </h1>
       <hr />
 
       <div className="popular-item">

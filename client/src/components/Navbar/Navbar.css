@@ -1,4 +1,4 @@
-/* Base styles */
+ Base styles 
 .register-wrapper {
   height: 100vh;
   display: flex;
@@ -36,16 +36,6 @@
   gap: 20px;
 }
 
-input {
-  width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  border: none;
-  border-bottom: 1px solid #a91d3a;
-  font-size: 18px;
-  background-color: transparent;
-  color: #000000;
-}
 
 button {
   padding: 10px;
@@ -68,11 +58,11 @@ button:hover {
 
 .register-link {
   font-size: 14px;
-  margin-top: -10px; /* Adjust margin to fit your layout */
+  margin-top: -10px; 
 }
 
 .register-link a {
-  color: blue;
+  color: rgb(255, 0, 0);
   text-decoration: none;
 }
 
@@ -80,7 +70,7 @@ button:hover {
   text-decoration: underline;
 }
 
-/* Responsive styles */
+
 @media (min-width: 500px) {
   .register-title {
     font-size: 34px;
@@ -95,13 +85,13 @@ button:hover {
   }
 }
 
-/* Navbar styles */
+
 .navbar {
   display: flex;
   justify-content: space-around;
   padding: 16px;
   box-shadow: 0 1px 3px -2px;
-  flex-wrap: wrap; /* Add this to make items wrap on smaller screens */
+  flex-wrap: wrap; 
 }
 
 .nav-logo img {
@@ -129,7 +119,7 @@ button:hover {
   color: #626262;
   font-size: 20px;
   font-weight: 500;
-  flex-wrap: wrap; /* Add this to make items wrap on smaller screens */
+  flex-wrap: wrap; 
 }
 
 .nav-menu li {
@@ -153,7 +143,7 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 45px;
-  flex-wrap: wrap; /* Add this to make items wrap on smaller screens */
+  flex-wrap: wrap; 
 }
 
 .nav-login-cart button {

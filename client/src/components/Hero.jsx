@@ -5,6 +5,7 @@ import arrow_icon from "./Assets/arrow.png";
 import hero_image from "./Assets/hero_image.png";
 import Item from "./Item";
 import Popular from "./Popular";
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <>
@@ -23,10 +24,9 @@ const Hero = () => {
             <p>Find unique items</p>
           </div>
           <div className="hero-latest-btn">
-            {" "}
-            {/* PROMJENIT */}
-            <div>View Latest Auctions</div>
-            
+            <Link to="/Shop" className="latest-auctions-btn">
+              View Latest Auctions
+            </Link>
           </div>
         </div>
 

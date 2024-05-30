@@ -42,14 +42,14 @@ const ContactForm = () => {
             <div class="form-container">
                 <div class="left-container">
                     <div class="left-inner-container">
-                        <h2>FA IKONE</h2>
-                        <p><FontAwesomeIcon icon={faInstagram} />Insta</p>
+                        <h2>Social Media</h2>
+                        <p><FontAwesomeIcon icon={faInstagram} />  Instagram</p>
                         <br />
-                        <p><FontAwesomeIcon icon={faEnvelope} />Mejl</p>
+                        <p><FontAwesomeIcon icon={faEnvelope} />  E-mail</p>
                         <br />
-                        <p><FontAwesomeIcon icon={faLocationDot} />Lokacija</p>
+                        <p><FontAwesomeIcon icon={faLocationDot} />  Lokacija</p>
                         <br />
-                        <p><FontAwesomeIcon icon={faMapLocation} />GOOGLE MAPS</p>
+                        <p><FontAwesomeIcon icon={faMapLocation} />  Google maps</p>
                         <i class="fa fa-youtube-play" aria-hidden="true"></i>
                     </div>
                 </div>
