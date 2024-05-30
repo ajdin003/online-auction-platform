@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -25,11 +24,7 @@ const userSchema = new mongoose.Schema({
     enum: ["user", "admin"],
     default: "user",
   },
-});
-
-userSchema.pre("save", async function (next) {
-  this.password = await bcrypt.hash(this.password, 12);
-  next();
+  cart: [{ type: mongoose.Schema.Types.ObjectId, ref: "Article" }],
 });
 
 const User = mongoose.model("User", userSchema);

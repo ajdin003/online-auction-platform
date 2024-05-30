@@ -10,6 +10,8 @@ import ItemPage from "./Pages/ItemPage.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ContactForm from "./Pages/ContactForm.jsx";
 import AboutUs from "./Pages/AboutUs.jsx";
+import CreateArticleForm from "./Pages/CreateArticleForm.jsx";
+import Cart from "./Pages/Cart.jsx";
 
 function App() {
   const queryClient = new QueryClient();
@@ -27,6 +29,8 @@ function App() {
             <Route path="/About" element={<AboutUs />}></Route>
             <Route path="/popular" element={<Popular />} />
             <Route path="/item/:id" element={<ItemPage />} />
+            <Route path="/create-article" element={<CreateArticleForm />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </Router>
       </div>

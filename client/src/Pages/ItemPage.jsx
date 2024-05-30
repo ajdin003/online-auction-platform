@@ -4,10 +4,12 @@ import axios from "axios";
 import "../css/itemPage.css";
 import { useEffect, useState } from "react";
 import BidButton from "../components/BidButton";
+import { useCookies } from "react-cookie";
 
 const ItemPage = () => {
   const { id } = useParams();
   const [timeRemaining, setTimeRemaining] = useState("");
+  const [cookie] = useCookies();
 
   const query = useQuery({
     queryKey: ["articles"],
@@ -58,6 +60,7 @@ const ItemPage = () => {
         if (remainingTime <= 0) {
           clearInterval(intervalId);
           setTimeRemaining("Time's up");
+          handleEndAuction(); // Call the function to handle end of auction
         } else {
           const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
           const hours = Math.floor(
@@ -77,6 +80,36 @@ const ItemPage = () => {
 
     calculateTimeRemaining();
   }, [id, query.isLoading, query.data]);
+
+  const handleBuyNow = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:3001/articles/${id}/buy-now`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${cookie.token}`,
+          },
+        }
+      );
+      console.log(response.data);
+      // Add logic to handle success and update UI as needed
+    } catch (error) {
+      console.error("Error buying now:", error);
+    }
+  };
+
+  const handleEndAuction = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:3001/articles/${id}/end-auction`
+      );
+      console.log(response.data);
+      // Add logic to handle success and update UI as needed
+    } catch (error) {
+      console.error("Error ending auction:", error);
+    }
+  };
 
   if (
     query.isLoading ||
@@ -111,6 +144,8 @@ const ItemPage = () => {
         </h2>
         <div>
           <BidButton articleId={article._id} />
+          <button onClick={handleBuyNow}>Buy Now</button>
+          {/* Add cancel bid button */}
           <button>CANCEL BID</button>
         </div>
       </div>
