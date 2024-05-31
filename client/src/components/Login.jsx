@@ -27,23 +27,24 @@ const Login = () => {
   return (
     <div className="register-wrapper">
       <div className="login-box">
-      <h1 className="register-title">Log in to your account</h1>
-      
-      <div className="register-content-wrapper">
-        <input
-          type="text"
-          placeholder="Username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <p>Don't have an account? <Link to="/register">Register here</Link>
-      </p>
-        <button onClick={handleSubmit}>Log In</button>
-      </div>
+        <h1 className="register-title">Log in to your account</h1>
+
+        <div className="register-content-wrapper">
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <p>
+            Dont have an account? <Link to="/register">Register here</Link>
+          </p>
+          <button onClick={handleSubmit}>Log In</button>
+        </div>
       </div>
     </div>
   );
