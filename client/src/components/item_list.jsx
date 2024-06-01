@@ -1,8 +1,9 @@
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Item from "./Item";
 
-const ItemList = () => {
+const ItemList = ({ searchTerm }) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["articles"],
     queryFn: async () => {
@@ -23,9 +24,13 @@ const ItemList = () => {
     return <span>No articles found</span>;
   }
 
+  const filteredArticles = data.data.articles.filter(article =>
+    article.articleName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div>
-      {data.data.articles.map((article) => (
+    <div className="item-list">
+      {filteredArticles.map((article) => (
         <Item
           key={article._id}
           name={article.articleName}

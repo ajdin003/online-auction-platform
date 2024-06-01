@@ -23,6 +23,12 @@
   justify-content: center;
   gap: 20px;
 }
+.register-content-wrapper p {
+  
+  font-size: 12px;
+  
+}
+
 
 input {
   width: 100%;

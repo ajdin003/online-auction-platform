@@ -3,10 +3,11 @@
   align-items: center;
   justify-content: center;
   margin: 20px 0;
+  gap: 10px; /* Add gap between the search input and the create button */
 }
 
 .search-input {
-  width: 80%;
+  flex: 1; /* Allow the search input to take up available space */
   padding: 10px;
   height: 40px;
   border: 1px solid #ccc;
@@ -15,25 +16,74 @@
   outline: none;
 }
 
-.search-button {
-  padding: 10px 20px;
+.create-button {
   height: 40px;
   border: none;
-  background-color: #0064d2; /* eBay blue color */
+  background-color: #030303; /* eBay blue color */
   color: white;
   font-size: 16px;
   border-radius: 25px;
   cursor: pointer;
+  margin-top: -2px;
 }
 
-.search-button:hover {
-  -color: #004a9c; /* Darker blue on hover */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .shop-container {
-  height: 100vh;
   background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-list-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust gap between items */
+  justify-content: flex-start; /* Align items to the start of the container */
+  align-items: flex-start; /* Align items to the top of the container */
 }
 
 /* Item Styles */
@@ -75,23 +125,13 @@
 }
 
 .shop-container .item-price-old {
-  font-size: 16px;
+  font-size: 26px;
   color: #999;
   text-decoration: line-through;
 }
 
 .shop-container .item:hover {
   transform: scale(1.05);
-}
-
-/* Item List Styles */
-.item-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Adjust gap between items */
-  justify-content: space-around; /* Distribute items evenly in rows */
-  max-width: 1200px; /* Limit maximum width of the item list */
-  margin: 0 auto; /* Center align the item list */
 }
 
 /* Responsive Adjustments */

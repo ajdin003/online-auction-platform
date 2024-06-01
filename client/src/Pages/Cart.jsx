@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import "../css/Cart.css";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -24,24 +25,31 @@ const Cart = () => {
 
   console.log(cartItems);
 
+
   return (
-    <div>
+    <div className="shop-container">
       <h2>Cart</h2>
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty</p>
-      ) : (
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item._id}>
-              <img src={`http://localhost:3001/${item.image}`} alt="" />
-              <div>
-                <h3>{item.articleName}</h3>
-                <p>${item.price}</p>
+      <div className="item-list-container">
+        <div className="item-list">
+          {cartItems.length === 0 ? (
+            <p>Your cart is empty</p>
+          ) : (
+            cartItems.map((item) => (
+              <div key={item._id} className="item">
+                <img
+                  src={`http://localhost:3001/${item.image}`}
+                  alt={item.articleName}
+                  className="item-image"
+                />
+                <p>{item.articleName}</p>
+                <div className="item-prices">
+                  <p className="item-price-new">${item.price}</p>
+                </div>
               </div>
-            </li>
-          ))}
-        </ul>
-      )}
+            ))
+          )}
+        </div>
+      </div>
     </div>
   );
 };

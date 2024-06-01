@@ -35,7 +35,7 @@ const Hero = () => {
           <div className="weekly-auctions">
             <h3>Weekly Auctions</h3>
             <p>Discover our latest weekly auctions featuring unique items!</p>
-            {/* Add your Item component or any content for weekly auctions here */}
+            <img src={hero_image} alt="Hero Image" className="hero-image" />
             <Item id="1" name="Example Item" newPrice={100} />
           </div>
         </div>

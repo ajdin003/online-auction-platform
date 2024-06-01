@@ -66,6 +66,7 @@ const Item = ({ id, name, newPrice, startDate, endDate }) => {
     <Link to={`/item/${id}`}>
       <div className="item">
         <p>{name}</p>
+        
         <div className="item-prices">
           <div className="item-price-new">${newPrice}</div>
         </div>
@@ -81,6 +82,7 @@ Item.propTypes = {
   newPrice: PropTypes.number.isRequired,
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
+  image: PropTypes.string, 
 };
 
 export default Item;
