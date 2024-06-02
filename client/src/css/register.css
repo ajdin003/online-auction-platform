@@ -94,8 +94,10 @@ button:hover {
   width: 100%;
   max-width: 400px;
 }
+
+
 .register-box {
-  background: linear-gradient(180deg, #deace2, #d2ffdf22 60%);
+  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
   
   padding: 40px;
   border-radius: 15px;

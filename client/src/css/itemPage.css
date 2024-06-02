@@ -1,36 +1,76 @@
 .item-page-wrapper {
-  height: 100%;
+  /*height: 100%;
   width: 50%;
-  margin: 0 auto;
+  margin: 0 auto;*/
+  height: calc(100vh - 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  color: #0e0707;
+  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+  
 }
 
 .item-page-content {
+  /*display: flex;
+  flex-direction: column;
+  padding: 20px 0 20px 0;*/
+  margin-top: 100px;
+  padding: 20px ;
+  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  padding: 20px 0 20px 0;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  max-height: 100%;
 }
+
+
+.item-page-content:hover{
+  background: linear-gradient(360deg, #f27f96, #ffffff22 95%);
+}
+
 
 .article-name-condition {
   display: flex;
+  
   justify-content: space-between;
   margin-top: 10px;
 }
 
 .article-name {
-  font-size: 38px;
+  /*font-size: 38px;*/
+  /*text-transform: uppercase;*/
+  
+  font-size: 60px;
+  margin-bottom: 20px;
 }
 
 .article-condition {
   text-transform: uppercase;
+  font-size: 20px;
+  color: #f27f96;
+  
 }
 
 .article-price {
   margin-top: 20px;
   color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .highest-bid-number {
   color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .green {
@@ -39,4 +79,11 @@
 
 img {
   width: 100%;
+}
+
+button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh; /* Optional, to center vertically on the page */
 }

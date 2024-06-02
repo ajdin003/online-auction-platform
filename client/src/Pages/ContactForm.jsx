@@ -50,7 +50,8 @@ const ContactForm = () => {
                         <p><FontAwesomeIcon icon={faLocationDot} />  Lokacija</p>
                         <br />
                         <p><FontAwesomeIcon icon={faMapLocation} />  Google maps</p>
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                        <br />
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14798.607579438555!2d17.90141965!3d44.20315705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475ee20bca7dc8fd%3A0x792f7b9490216e1f!2sZenica%2C%20Bosnia%20and%20Herzegovina!5e0!3m2!1sen!2sba!4v1717033406457!5m2!1sen!2sba" width="600" height="450"></iframe>
                     </div>
                 </div>
                 <div class="right-container">
