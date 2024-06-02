@@ -23,6 +23,24 @@ exports.getAllUsers = async (req, res, next) => {
   }
 };
 
+exports.getCurrentUser = async (req, res, next) => {
+  try {
+    const user = req.user;
+
+    if (!user) {
+      return res.status(404).json({ status: "fail", message: "No user found" });
+    }
+
+    res.status(200).json({
+      status: "success",
+      data: { user },
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: "error", message: "Internal Server Error" });
+  }
+};
+
 exports.getUserById = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);

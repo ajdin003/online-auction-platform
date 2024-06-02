@@ -1,0 +1,12 @@
+/* itemList.css */
+
+.item-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.item-list {
+  display: flex;
+  gap: 20px;
+}

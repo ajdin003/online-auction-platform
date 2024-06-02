@@ -84,7 +84,7 @@ exports.deleteArticle = async (req, res, next) => {
 
     await Article.findByIdAndDelete(articleId);
 
-    res.status(204);
+    res.status(204).end();
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

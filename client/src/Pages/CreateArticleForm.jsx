@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import "../css/CreateArticleForm.css";
 
 const CreateArticleForm = () => {
   const [articleName, setArticleName] = useState("");
@@ -32,6 +33,7 @@ const CreateArticleForm = () => {
 
       // Optionally, you can redirect the user to a different page or display a success message
       console.log("Article created successfully");
+      window.location.reload();
     } catch (error) {
       console.error("Error creating article:", error);
     }

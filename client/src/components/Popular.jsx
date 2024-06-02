@@ -1,24 +1,45 @@
-import React from "react";
 import "../css/Popular.css";
-import data_product from "./Assets/data";
 import Item from "./Item";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
+import axios from "axios";
 
 const Popular = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [cookie] = useCookies();
+
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3001/articles/cart",
+          { headers: { Authorization: `Bearer ${cookie.token}` } }
+        );
+        setCartItems(response.data);
+      } catch (error) {
+        console.error("Error fetching cart items:", error);
+      }
+    };
+
+    fetchCartItems();
+  }, []);
+
+  console.log(cartItems);
   return (
     <div className="popular">
       <h1>SPECIAL OFFER, BLUE HAIRED DADDY ISSUES GIRL </h1>
       <hr />
 
       <div className="popular-item">
-        {data_product.map((item, i) => (
+        {cartItems.map((item, i) => (
           <Item
             key={i}
-            id={item.id}
+            id={item._id}
             name={item.name}
             image={item.image}
-            new_price={item.new_price}
-            old_price={item.old_price}
+            newPrice={item.price}
+            startDate={item.startDate}
+            endDate={item.endDate}
           />
         ))}
       </div>

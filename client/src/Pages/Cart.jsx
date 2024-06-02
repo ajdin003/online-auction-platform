@@ -25,25 +25,24 @@ const Cart = () => {
 
   console.log(cartItems);
 
-
   return (
-    <div className="shop-container">
-      <h2>Cart</h2>
-      <div className="item-list-container">
-        <div className="item-list">
+    <div className="cart-container">
+      <h2 className="cart-title">Cart</h2>
+      <div className="cart-item-list-container">
+        <div className="cart-item-list">
           {cartItems.length === 0 ? (
             <p>Your cart is empty</p>
           ) : (
             cartItems.map((item) => (
-              <div key={item._id} className="item">
+              <div key={item._id} className="cart-item">
                 <img
                   src={`http://localhost:3001/${item.image}`}
                   alt={item.articleName}
-                  className="item-image"
+                  className="cart-item-image"
                 />
-                <p>{item.articleName}</p>
-                <div className="item-prices">
-                  <p className="item-price-new">${item.price}</p>
+                <p className="cart-item-name">{item.articleName}</p>
+                <div className="cart-item-prices">
+                  <p className="cart-item-price-new">${item.highestBid}</p>
                 </div>
               </div>
             ))

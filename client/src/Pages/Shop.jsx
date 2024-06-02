@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ItemList from "../components/item_list";
 import CreateArticleForm from "../Pages/CreateArticleForm";
 import "../css/shop.css";
@@ -16,25 +16,25 @@ const Shop = () => {
   };
 
   return (
-    <div className="shop-container">
-      <div className="search-container">
+    <div className="shop-main-container">
+      <div className="shop-search-container">
         <input
           type="text"
-          className="search-input"
+          className="shop-search-input"
           placeholder="Search items..."
           value={searchTerm}
           onChange={handleSearchChange}
         />
-        <button className="create-button" onClick={toggleModal}>
+        <button className="shop-create-button" onClick={toggleModal}>
           Create Article
         </button>
       </div>
       <ItemList searchTerm={searchTerm} />
 
       {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close-button" onClick={toggleModal}>
+        <div className="shop-modal">
+          <div className="shop-modal-content">
+            <span className="shop-close-button" onClick={toggleModal}>
               &times;
             </span>
             <CreateArticleForm />

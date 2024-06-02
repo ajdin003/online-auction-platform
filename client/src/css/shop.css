@@ -1,33 +1,90 @@
-.search-container {
+.shop-main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.shop-search-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 20px 0;
-  gap: 10px; /* Add gap between the search input and the create button */
+  margin-bottom: 20px;
 }
 
-.search-input {
-  flex: 1; /* Allow the search input to take up available space */
+.shop-search-input {
+  flex: 1;
+  width: calc(100% - 120px);
+  max-width: 400px;
   padding: 10px;
-  height: 40px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  font-size: 16px;
-  outline: none;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
 }
 
-.create-button {
-  height: 40px;
-  border: none;
-  background-color: #030303; /* eBay blue color */
+.shop-create-button {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  background-color: #007bff;
   color: white;
-  font-size: 16px;
-  border-radius: 25px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: -2px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
 }
 
-.modal {
+.shop-create-button:hover {
+  background-color: #0056b3;
+}
+
+.shop-item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.shop-item {
+  width: calc(25% - 20px);
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.shop-item:hover {
+  transform: translateY(-5px);
+}
+
+.shop-item-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.shop-item-name {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.shop-item-prices {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.shop-item-price-new {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.shop-modal {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -35,14 +92,13 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.modal-content {
+.shop-modal-content {
   background-color: #fefefe;
   padding: 20px;
   border: 1px solid #888;
@@ -51,99 +107,16 @@
   border-radius: 10px;
 }
 
-.close-button {
+.shop-close-button {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close-button:hover,
-.close-button:focus {
+.shop-close-button:hover,
+.shop-close-button:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
-}
-
-.shop-container {
-  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.item-list-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.item-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Adjust gap between items */
-  justify-content: flex-start; /* Align items to the start of the container */
-  align-items: flex-start; /* Align items to the top of the container */
-}
-
-/* Item Styles */
-.shop-container .item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  text-align: center;
-  width: 200px; /* Adjust width as needed */
-  margin: 10px;
-  transition: transform 0.3s;
-  box-sizing: border-box; /* Include padding and border in width calculation */
-}
-
-.shop-container .item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.shop-container .item p {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.shop-container .item-prices {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.shop-container .item-price-new {
-  font-size: 20px;
-  color: green;
-  font-weight: bold;
-}
-
-.shop-container .item-price-old {
-  font-size: 26px;
-  color: #999;
-  text-decoration: line-through;
-}
-
-.shop-container .item:hover {
-  transform: scale(1.05);
-}
-
-/* Responsive Adjustments */
-@media screen and (max-width: 1200px) {
-  .item-list {
-    padding: 0 20px; /* Add padding on sides for spacing */
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .item-list {
-    flex-direction: column; /* Display items in a single column on smaller screens */
-    align-items: center;
-  }
 }

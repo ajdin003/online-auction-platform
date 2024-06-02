@@ -11,26 +11,22 @@ const ItemPage = () => {
   const [timeRemaining, setTimeRemaining] = useState("");
   const [cookie] = useCookies();
 
-  const query = useQuery({
-    queryKey: ["articles"],
+  const articleQuery = useQuery({
+    queryKey: ["article", id],
     queryFn: async () => {
       const response = await axios.get(`http://localhost:3001/articles/${id}`);
       return response.data;
     },
   });
 
+  const article = articleQuery.data?.data?.article;
+
   useEffect(() => {
     const calculateTimeRemaining = () => {
-      if (
-        query.isLoading ||
-        !query.data ||
-        !query.data.data ||
-        !query.data.data.article
-      ) {
+      if (!article) {
         return;
       }
 
-      const article = query.data.data.article;
       const start = new Date(article.startDate);
       const end = new Date(article.endDate);
 
@@ -54,13 +50,12 @@ const ItemPage = () => {
       const intervalId = setInterval(() => {
         const currentTime = new Date();
         const timeElapsed = currentTime - start;
-
         const remainingTime = difference - timeElapsed;
 
         if (remainingTime <= 0) {
           clearInterval(intervalId);
           setTimeRemaining("Time's up");
-          handleEndAuction(); // Call the function to handle end of auction
+          handleEndAuction();
         } else {
           const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
           const hours = Math.floor(
@@ -79,7 +74,7 @@ const ItemPage = () => {
     };
 
     calculateTimeRemaining();
-  }, [id, query.isLoading, query.data]);
+  }, [article]);
 
   const handleBuyNow = async () => {
     try {
@@ -93,7 +88,6 @@ const ItemPage = () => {
         }
       );
       console.log(response.data);
-      // Add logic to handle success and update UI as needed
     } catch (error) {
       console.error("Error buying now:", error);
     }
@@ -105,23 +99,16 @@ const ItemPage = () => {
         `http://localhost:3001/articles/${id}/end-auction`
       );
       console.log(response.data);
-      // Add logic to handle success and update UI as needed
     } catch (error) {
       console.error("Error ending auction:", error);
     }
   };
 
-  if (
-    query.isLoading ||
-    !query.data ||
-    !query.data.data ||
-    !query.data.data.article
-  ) {
-    return <h1>loading</h1>;
-  }
+  const conditionClass = article?.condition === "New" ? "green" : "yellow";
 
-  const article = query.data.data.article;
-  const conditionClass = article.condition === "New" ? "green" : "yellow";
+  if (articleQuery.isLoading || !article) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div className="item-page-wrapper">
@@ -130,8 +117,9 @@ const ItemPage = () => {
         <div className="article-name-condition">
           <h1 className="article-name">{article.articleName}</h1>
           <p className={`article-condition ${conditionClass}`}>
-            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &#40;{article.condition}&#41;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#40;{article.condition}
+            &#41;
           </p>
         </div>
         <h2 className="article-price">${article.price}</h2>
@@ -139,7 +127,6 @@ const ItemPage = () => {
           Highest bid:
           <span className="highest-bid-number"> ${article.highestBid}</span>
         </h2>
-        {/* Render the Item component and pass the timeRemaining prop */}
         <h2>
           Time remaining: <br />
           &nbsp;<span>{timeRemaining}</span>
@@ -148,10 +135,11 @@ const ItemPage = () => {
           <BidButton articleId={article._id} />
           <br />
           <button onClick={handleBuyNow}>Buy Now</button>
-          <br /><br />
-          {/* Add cancel bid button */}
+          <br />
+          <br />
           <button>CANCEL BID</button>
-          <br /><br />
+          <br />
+          <br />
         </div>
       </div>
     </div>

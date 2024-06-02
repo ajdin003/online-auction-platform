@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-const Item = ({ id, name, newPrice, startDate, endDate }) => {
+const Item = ({ id, name, newPrice, startDate, endDate, image }) => {
   const [timeRemaining, setTimeRemaining] = useState("");
 
   useEffect(() => {
@@ -11,10 +11,6 @@ const Item = ({ id, name, newPrice, startDate, endDate }) => {
       const now = new Date();
       const start = new Date(startDate);
       const end = new Date(endDate);
-
-      console.log("Current time:", now);
-      console.log("Start date:", startDate, "Parsed start date:", start);
-      console.log("End date:", endDate, "Parsed end date:", end);
 
       if (isNaN(start.getTime()) || isNaN(end.getTime())) {
         setTimeRemaining("Invalid start or end date");
@@ -63,16 +59,16 @@ const Item = ({ id, name, newPrice, startDate, endDate }) => {
   }, [startDate, endDate]);
 
   return (
-    <Link to={`/item/${id}`}>
-      <div className="item">
+    <div className="item">
+      <Link to={`/item/${id}`}>
+        <img src={`http://localhost:3001/${image}`} alt="" />
         <p>{name}</p>
-        
         <div className="item-prices">
           <div className="item-price-new">${newPrice}</div>
         </div>
         <div className="item-timer">Time remaining: {timeRemaining}</div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
@@ -82,7 +78,7 @@ Item.propTypes = {
   newPrice: PropTypes.number.isRequired,
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
-  image: PropTypes.string, 
+  image: PropTypes.string,
 };
 
 export default Item;
