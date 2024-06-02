@@ -129,9 +129,10 @@ const ItemPage = () => {
         <img src={`http://localhost:3001/${article.image}`} alt="" />
         <div className="article-name-condition">
           <h1 className="article-name">{article.articleName}</h1>
-          <h2 className={`article-condition ${conditionClass}`}>
-            {article.condition}
-          </h2>
+          <p className={`article-condition ${conditionClass}`}>
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &#40;{article.condition}&#41;
+          </p>
         </div>
         <h2 className="article-price">${article.price}</h2>
         <h2>
@@ -140,13 +141,17 @@ const ItemPage = () => {
         </h2>
         {/* Render the Item component and pass the timeRemaining prop */}
         <h2>
-          Time remaining: <span>{timeRemaining}</span>
+          Time remaining: <br />
+          &nbsp;<span>{timeRemaining}</span>
         </h2>
         <div>
           <BidButton articleId={article._id} />
+          <br />
           <button onClick={handleBuyNow}>Buy Now</button>
+          <br /><br />
           {/* Add cancel bid button */}
           <button>CANCEL BID</button>
+          <br /><br />
         </div>
       </div>
     </div>

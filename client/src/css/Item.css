@@ -11,6 +11,7 @@
   
   .item:hover {
     transform: translateY(-5px);
+    background: linear-gradient(360deg, #f27f96, #ffffff22 70%);
   }
   
   .item p {
