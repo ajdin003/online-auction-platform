@@ -54,32 +54,32 @@ const Navbar = () => {
           <Link style={{ textDecoration: "none" }} to="/">
             Home
           </Link>
-          {menu === "shop" && <hr />}
+          {menu === "shop"}
         </li>
         <li onClick={() => setMenu("shop")}>
           <Link style={{ textDecoration: "none" }} to="/Shop">
             Shop
           </Link>
-          {menu === "shop" && <hr />}
+          {menu === "shop"}
         </li>
         <li onClick={() => setMenu("about")}>
           <Link style={{ textDecoration: "none" }} to="/about">
             About us
           </Link>
-          {menu === "about" && <hr />}
+          {menu === "about"}
         </li>
         <li onClick={() => setMenu("contact")}>
           <Link style={{ textDecoration: "none" }} to="/contact">
             Contact us
           </Link>
-          {menu === "contact" && <hr />}
+          {menu === "contact"}
         </li>
         {user && user.role === "admin" && (
           <li onClick={() => setMenu("users")}>
             <Link style={{ textDecoration: "none" }} to="/users">
               Users
             </Link>
-            {menu === "users" && <hr />}
+            {menu === "users"}
           </li>
         )}
       </ul>

@@ -31,7 +31,7 @@ const Popular = () => {
       <hr />
 
       <div className="popular-item">
-        {cartItems.map((item, i) => (
+        {cartItems.cartItems.map((item, i) => (
           <Item
             key={i}
             id={item._id}

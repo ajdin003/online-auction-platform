@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 import "../css/Cart.css";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(null);
   const [cookie] = useCookies();
 
   useEffect(() => {
@@ -21,19 +21,20 @@ const Cart = () => {
     };
 
     fetchCartItems();
-  }, []);
+  }, [cookie.token]);
 
-  console.log(cartItems);
+  console.log(cartItems && cartItems.length);
 
   return (
     <div className="cart-container">
       <h2 className="cart-title">Cart</h2>
       <div className="cart-item-list-container">
         <div className="cart-item-list">
-          {cartItems.length === 0 ? (
+          {cartItems && cartItems.length === 0 ? (
             <p>Your cart is empty</p>
           ) : (
-            cartItems.map((item) => (
+            cartItems &&
+            cartItems.cartItems.map((item) => (
               <div key={item._id} className="cart-item">
                 <img
                   src={`http://localhost:3001/${item.image}`}

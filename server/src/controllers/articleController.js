@@ -211,10 +211,20 @@ exports.getCartItems = async (req, res, next) => {
     const user = await User.findById(userId).populate("cart");
     console.log("User with populated cart:", user);
 
+    if (!user) {
+      return res
+        .status(404)
+        .json({ status: "fail", message: "User not found" });
+    }
+
+    if (!user.cart) {
+      return res.status(200).json({ cartItems: [] });
+    }
+
     const cartItems = user.cart;
     console.log("Cart items:", cartItems);
 
-    res.status(200).json(cartItems);
+    res.status(200).json({ cartItems });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });

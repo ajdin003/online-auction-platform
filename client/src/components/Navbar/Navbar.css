@@ -1,5 +1,4 @@
- Base styles 
-.register-wrapper {
+Base styles .register-wrapper {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,11 +21,9 @@
   max-width: 400px;
 }
 .login-box:hover {
-  
   background-color: #f1a0b1;
-
 }
-.register-box:hover{
+.register-box:hover {
   background-color: #f1a0b1;
 }
 .register-title {
@@ -42,7 +39,6 @@
   justify-content: center;
   gap: 20px;
 }
-
 
 button {
   padding: 10px;
@@ -66,7 +62,7 @@ button:hover {
 
 .register-link {
   font-size: 14px;
-  margin-top: -10px; 
+  margin-top: -10px;
 }
 
 .register-link a {
@@ -77,7 +73,6 @@ button:hover {
 .register-link a:hover {
   text-decoration: underline;
 }
-
 
 @media (min-width: 500px) {
   .register-title {
@@ -93,13 +88,12 @@ button:hover {
   }
 }
 
-
 .navbar {
   display: flex;
   justify-content: space-around;
   padding: 16px;
   box-shadow: 0 1px 3px -2px;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 .nav-logo img {
@@ -127,7 +121,7 @@ button:hover {
   color: #626262;
   font-size: 20px;
   font-weight: 500;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 .nav-menu li {
@@ -139,19 +133,11 @@ button:hover {
   cursor: pointer;
 }
 
-.nav-menu hr {
-  border: none;
-  width: 80%;
-  height: 3px;
-  border-radius: 10px;
-  background-color: #000000;
-}
-
 .nav-login-cart {
   display: flex;
   align-items: center;
   gap: 45px;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 .nav-login-cart button {
