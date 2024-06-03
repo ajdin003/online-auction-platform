@@ -113,7 +113,7 @@ const ItemPage = () => {
   return (
     <div className="item-page-wrapper">
       <div className="item-page-content">
-        <img src={`http://localhost:3001/${article.image}`} alt="" />
+        <img className="slk" src={`http://localhost:3001/${article.image}`} alt="" />
         <div className="article-name-condition">
           <h1 className="article-name">{article.articleName}</h1>
           <p className={`article-condition ${conditionClass}`}>
@@ -137,7 +137,6 @@ const ItemPage = () => {
           <button onClick={handleBuyNow}>Buy Now</button>
           <br />
           <br />
-          <button>CANCEL BID</button>
           <br />
           <br />
         </div>

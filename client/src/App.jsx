@@ -13,6 +13,7 @@ import AboutUs from "./Pages/AboutUs.jsx";
 import CreateArticleForm from "./Pages/CreateArticleForm.jsx";
 import Cart from "./Pages/Cart.jsx";
 import Users from "./Pages/Users.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/users" element={<Users />} />
           </Routes>
+          <Footer />
         </Router>
       </div>
     </QueryClientProvider>

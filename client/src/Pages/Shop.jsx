@@ -16,6 +16,7 @@ const Shop = () => {
   };
 
   return (
+    <div className="sv3">
     <div className="shop-main-container">
       <div className="shop-search-container">
         <input
@@ -30,7 +31,6 @@ const Shop = () => {
         </button>
       </div>
       <ItemList searchTerm={searchTerm} />
-
       {isModalOpen && (
         <div className="shop-modal">
           <div className="shop-modal-content">
@@ -41,6 +41,7 @@ const Shop = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

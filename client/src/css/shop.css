@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.sv3{
+  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+}
+
 .shop-search-container {
   display: flex;
   flex-wrap: wrap;
