@@ -2,19 +2,20 @@ import { useState } from "react";
 import "./Navbar.css";
 import logo from "../Assets/auction_logo.jpeg";
 import cart_icon from "../Assets/cart_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("shop");
-  const [cookies] = useCookies(["token"]);
+  const [cookies, removeCookie] = useCookies(["token"]);
+  const navigate = useNavigate();
 
   const {
     data: user,
-    isLoading,
     error,
+    refetch,
   } = useQuery({
     queryKey: ["currentUser"],
     queryFn: async () => {
@@ -28,15 +29,20 @@ const Navbar = () => {
     },
   });
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const handleLogout = () => {
+    removeCookie("token");
+    navigate("/login");
+    refetch();
+    window.location.reload();
+  };
+
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
 
   if (error) {
     console.error("Error fetching user:", error);
   }
-
-  console.log(user);
 
   return (
     <div className="navbar">
@@ -78,9 +84,13 @@ const Navbar = () => {
         )}
       </ul>
       <div className="nav-login-cart">
-        <Link to="/login">
-          <button>Login</button>
-        </Link>
+        {user ? (
+          <button onClick={handleLogout}>Log out</button>
+        ) : (
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
+        )}
         <Link to="/cart">
           <img src={cart_icon} alt="Cart Icon" />
         </Link>
