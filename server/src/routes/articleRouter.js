@@ -14,7 +14,7 @@ const upload = multer({ storage: storage });
 const authController = require("../controllers/authController");
 const articleController = require("../controllers/articleController");
 
-router.get("/cart",  articleController.getCartItems);
+router.get("/cart", authController.protect, articleController.getCartItems);
 router.post(
   "/create-article",
   upload.single("image"),
