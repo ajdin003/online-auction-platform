@@ -62,17 +62,23 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
+  align-items: center; 
+  justify-content: center; 
 }
 
 .weekly-auctions {
+  
   background-color: #ffffff;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  text-align: center; /* Center text within weekly-auctions */
+  text-align: center; 
+}
+.weekly-auctions-content{
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .weekly-auctions h3 {
@@ -90,7 +96,7 @@
 .hero-image {
   max-width: 100%;
   height: auto;
-  max-height: 400px; /* Adjust the maximum height as needed */
+  max-height: 400px; 
   margin-top: 20px;
-  border-radius: 10px; /* Optional: Add border radius for styling */
+  border-radius: 10px; 
 }

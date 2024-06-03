@@ -8,7 +8,7 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 
 const Hero = () => {
-  const [cartItem, setCartItem] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
   const [cookie] = useCookies();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Hero = () => {
           headers: { Authorization: `Bearer ${cookie.token}` },
         });
         console.log(response.data.data.articles);
-        setCartItem(response.data.data.articles[0]);
+        setCartItems(response.data.data.articles);
       } catch (error) {
         console.error("Error fetching cart items:", error);
       }
@@ -27,7 +27,7 @@ const Hero = () => {
     fetchCartItems();
   }, [cookie.token]);
 
-  console.log(cartItem);
+  console.log(cartItems);
   return (
     <>
       <div className="hero">
@@ -47,17 +47,19 @@ const Hero = () => {
           <div className="weekly-auctions">
             <h3>Weekly Auctions</h3>
             <p>Discover our latest weekly auctions featuring unique items!</p>
-            <img src={hero_image} alt="Hero Image" className="hero-image" />
-            {cartItem && (
+            <div className="weekly-auctions-content">
+            {cartItems.length > 0 && cartItems.map((item) => (
               <Item
-                id={cartItem._id}
-                name={cartItem.articleName}
-                newPrice={cartItem.price}
-                image={cartItem.image}
-                startDate={cartItem.startDate}
-                endDate={cartItem.endDate}
+                key={item._id}
+                id={item._id}
+                name={item.articleName}
+                newPrice={item.price}
+                image={item.image}
+                startDate={item.startDate}
+                endDate={item.endDate}
               />
-            )}
+            ))}
+            </div>
           </div>
         </div>
       </div>

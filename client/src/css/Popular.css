@@ -3,14 +3,14 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 20px; /* Add padding for spacing */
+  padding: 20px; 
 }
 
 .popular h1 {
   color: #171717;
   font-size: 50px;
   font-weight: 600;
-  text-align: center; /* Center the text */
+  text-align: center; 
 }
 
 .popular hr {
@@ -25,7 +25,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   margin-top: 50px;
-  max-width: 1600px; /* Limit the maximum width of the grid */
+  max-width: 1600px; 
 }
 
 .item {
@@ -39,10 +39,10 @@
   height: auto;
 }
 
-/* Responsive adjustments */
+
 @media screen and (max-width: 1200px) {
   .popular-item {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on smaller screens */
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
 
@@ -51,12 +51,12 @@
     grid-template-columns: repeat(
       2,
       1fr
-    ); /* 2 columns on even smaller screens */
+    ); 
   }
 }
 
 @media screen and (max-width: 600px) {
   .popular-item {
-    grid-template-columns: 1fr; /* 1 column on very small screens */
+    grid-template-columns: 1fr; 
   }
 }

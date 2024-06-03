@@ -36,10 +36,7 @@ const Navbar = () => {
     window.location.reload();
   };
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
-
+ 
   if (error) {
     console.error("Error fetching user:", error);
   }

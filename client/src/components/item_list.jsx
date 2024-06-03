@@ -1,8 +1,8 @@
-/* eslint-disable react/prop-types */
+
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Item from "./Item";
-import "../css/itemList.css"; // Import the CSS file for styling
+import "../css/itemList.css"; 
 
 const ItemList = ({ searchTerm }) => {
   const { data, isLoading, error } = useQuery({
