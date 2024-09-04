@@ -22,7 +22,7 @@ app.use("/users", userRouter);
 app.use("/articles", articleRouter);
 
 mongoose.connect(DB).then(() => {
-  console.log("Database connection established.");
+  console.log("Database successfully connected.");
 });
 
 const port = 3001;
